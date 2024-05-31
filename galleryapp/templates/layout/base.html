@@ -7,7 +7,31 @@
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
     <title>{% block title %}{% endblock title %}</title>
 </head>
-<body>
-    {% block content %}{% endblock content %}
+<body class="w-screen h-screen flex flex-col scroll-smooth">
+    <header class="fixed w-screen flex gap-5 justify-center items-center border-b border-b-gray-300 p-3 bg-gray-900 text-white">
+        <a href={% url 'home' %} class="text-xl font-bold hidden md:inline">Galeria App</a>
+
+        <nav>
+            <ul class="flex gap-4 justify-center items-center text-sm">
+                <li><a href={% url 'home' %}>Home</a></li>
+                <li><a href={% url 'posts' %}>Publicaciones</a></li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <form action={% url 'logout' %} method='POST'>
+                            {% csrf_token %}
+                            <button type="submit">Salir</button>
+                        </form>
+                    </li>                    
+                {% else %}
+                    <li><a href={% url 'register' %}>Registrarse</a></li>                    
+                    <li><a href={% url 'login' %}>Ingresar</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block content %}{% endblock content %}        
 </body>
+<footer class="flex justify-center items-center bg-gray-50 text-sm text-gray-600 p-2">
+    Gallery App - Simple Galeria
+</footer>
 </html>

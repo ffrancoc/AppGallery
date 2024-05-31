@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('galleryapp.urls')),    
     path('admin/', admin.site.urls),
-    path('galleryapp', include('galleryapp.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
