@@ -1,7 +1,21 @@
 {% extends "layout/base.html" %}
 {% block title %}GalleryApp | Publicaciones{% endblock %}
 {% block content %}
-    <div class="w-screen h-screen flex flex-col justify-center items-center">
-        Publicaciones
+    <div class="content posts-content">
+        <div>
+            <div>
+                <p>Sidebar</p>
+            </div>
+            <div>
+                {% for i in data  %}
+                    <div>
+                        <div></div>
+                        <h1>Naturaleza</h1>
+                        <h3>Autor: <span>Jose Franco</span></h3>
+                        <button>Descargar</button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

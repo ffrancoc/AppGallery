@@ -1,7 +1,36 @@
 {% extends "layout/base.html" %}
 {% block title %}GalleryApp | Home{% endblock %}
 {% block content %}
-    <div class="w-screen h-screen flex flex-col justify-center items-center">
-        Home
+    <div class="content">
+        <div class="home-wrapper clamp">
+            <div>
+                {% comment %} sidebar {% endcomment %}
+                <div>
+                    <h1>Categorias</h1>
+                    <a>Lo ultimo</a>
+                    <a>populares</a>
+                    <a>Mas descargados</a>
+                </div>
+
+                <div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Imagen a Buscar" />
+                        <button>Buscar</button>
+                    </div>
+                    
+                    <div class="gallery-grid">                        
+                        {% for i in data %}
+                            <div class="image-card">
+                                <div class="picture"></div>
+                                <label>Titulo</label>
+                                <p>Author</p>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}{% endblock title %}</title>
 </head>
-<body class="w-screen h-screen flex flex-col scroll-smooth">
-    <header class="fixed w-screen flex gap-5 justify-center items-center border-b border-b-gray-300 p-3 bg-gray-900 text-white">
-        <a href={% url 'home' %} class="text-xl font-bold hidden md:inline">Galeria App</a>
+<body>
+    <header>
+        <a href={% url 'home' %} class="">Gallery App</a>
 
         <nav>
-            <ul class="flex gap-4 justify-center items-center text-sm">
+            <ul class="">
                 <li><a href={% url 'home' %}>Home</a></li>
                 <li><a href={% url 'posts' %}>Publicaciones</a></li>
                 {% if user.is_authenticated %}
@@ -31,7 +31,7 @@
     </header>
     {% block content %}{% endblock content %}        
 </body>
-<footer class="flex justify-center items-center bg-gray-50 text-sm text-gray-600 p-2">
+<footer>
     Gallery App - Simple Galeria
 </footer>
 </html>

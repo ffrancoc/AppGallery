@@ -10,12 +10,20 @@ def index(request):
 #     return render(request, 'login.html')
 
 def home(request):
-    context = {}
+    data = [*range(0, 20)]
+
+    context = {
+        "data": data
+    }
     return render(request, 'home.html', context=context)
 
 @login_required
 def posts(request):
-    context = {}
+    data = [*range(0, 30)]
+
+    context = {
+        "data": data
+    }
     return render(request, 'posts.html', context=context)
 
 @login_required
